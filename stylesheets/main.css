@@ -43,13 +43,21 @@ a {
 a:hover {
     text-decoration: underline;
 }
-p#pleft {
+div#pleft {
     max-width:20em;
     float:left;
 }
-p#pright {
-    max-width:20em;
+div#pleftbig {
+    max-width:90em;
     float:left;
+}
+div#pright {
+    max-width:30em;
+    float:right;
+}
+div#prightsmall {
+    max-width:10em;
+    float:right;
 }
 ul {
     clear:both;
@@ -133,4 +141,69 @@ body { font-size: 1em;}
     p, li { font-size: 1em; }
     p#pright { margin-left:3em; }
     .stage { -webkit-transform:scale(0.85); transform:scale(0.85); margin-right:120px; }
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    --c: goldenrod;
+    color: var(--c);
+    font-size: 16px;
+    border: 0.3em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+
+nav ul li span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+nav ul li:hover {
+    color: black;
+}
+
+nav ul li:hover span {
+    transform: translateY(0) scale(2);
+}
+
+nav ul li span:nth-child(1) {
+    --n: 1;
+}
+
+nav ul li span:nth-child(2) {
+    --n: 2;
+}
+
+nav ul li span:nth-child(3) {
+    --n: 3;
+}
+
+nav ul li span:nth-child(4) {
+    --n: 4;
 }
